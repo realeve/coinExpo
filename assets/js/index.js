@@ -32,7 +32,7 @@
 
 	var renderQrCode = function() {
 		$('.qrcode').removeClass('hidden');
-		var url = 'http://cbpc540.applinzi.com/index.php?s=/addon/GoodVoice/GoodVoice/getCoinExpoPrize&timestamp=' + coinexpo.timestamp + '&rectime=' + today();
+		var url = 'http://cbpm.applinzi.com/topic/coinExpo/prize.html?timestamp=' + coinexpo.timestamp + '&rectime=' + today();
 		$('.qrcode').qrcode({
 			width: 200,
 			height: 200,
@@ -191,7 +191,7 @@
 		return arr.sort(randomsort);
 	}
 
-	$.getJSON("./assets/data/" + exam.examPaper + ".min.json", function(question) {
+	$.getJSON("data/" + exam.examPaper + ".min.json", function(question) {
 		var quesLen = question.length;
 		//所有题目参与排序
 		exam.sourceList = getRandomArr(quesLen);
@@ -281,7 +281,6 @@
 			//单选
 			if (!isMulti) {
 				exam.answerList[curID] = (curAnswer == rightAnswer) ? 1 : 0;
-				console.log(exam.answerList[curID]);
 				return;
 			} else {
 				rightAnswer = rightAnswer.split(',');
@@ -295,7 +294,6 @@
 				}
 
 				exam.answerList[curID] = checkMultiAnswer(exam.multiCheckAnswer[curID], rightAnswer);
-				console.log(exam.answerList[curID]);
 			}
 
 			//未到最后一题
