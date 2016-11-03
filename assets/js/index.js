@@ -1,6 +1,6 @@
 (function() {
 	//测试模式，正式上线需设置为false
-	var testMode = true;
+	//var testMode = true;
 
 	//载入数据
 	var coinexpo;
@@ -87,7 +87,7 @@
 	}
 
 	//!testMode
-	if (coinexpo.times && !testMode) {
+	if (coinexpo.times) {
 		loadErrInfo();
 		return;
 	}
